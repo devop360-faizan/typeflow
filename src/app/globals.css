@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --color-theme-bg: var(--bg-color);
+  --color-theme-main: var(--main-color);
+  --color-theme-sub: var(--sub-color);
+  --color-theme-text: var(--text-color);
+  --color-theme-error: var(--error-color);
+  --color-theme-error-extra: var(--error-extra-color);
+  --color-theme-caret: var(--caret-color);
+}
+
+/* Default Theme (Dark Mode) */
+:root, .theme-dark {
+  --bg-color: #0d0f12;
+  --main-color: #00f2fe;
+  --sub-color: #475569;
+  --text-color: #f1f5f9;
+  --error-color: #f87171;
+  --error-extra-color: #ef4444;
+  --caret-color: #00f2fe;
+}
+
+.theme-light {
+  --bg-color: #f8fafc;
+  --main-color: #2563eb;
+  --sub-color: #94a3b8;
+  --text-color: #0f172a;
+  --error-color: #dc2626;
+  --error-extra-color: #b91c1c;
+  --caret-color: #2563eb;
+}
+
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Caret Blinking Animation */
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1.1s step-end infinite;
+}
+
+/* Custom Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade {
+  animation: fade-in 0.5s cubic-bezier(0.2, 1, 0.2, 1) forwards;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth transitions for letters */
+.letter-transition {
+  transition: color 0.12s ease;
+}
+
