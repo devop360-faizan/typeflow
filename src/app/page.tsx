@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar, { THEMES } from '../components/Navbar';
 import TypingArea from '../components/TypingArea';
 import Keyboard from '../components/Keyboard';
 import StatsView from '../components/StatsView';
@@ -13,7 +13,7 @@ interface PBTracker {
 
 export default function Home() {
   // Config state (initialize with default values, load from localStorage in useEffect)
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<string>('carbon');
   const [mode, setMode] = useState<'time' | 'words'>('time');
   const [timeSetting, setTimeSetting] = useState(30);
   const [wordSetting, setWordSetting] = useState(25);
@@ -55,7 +55,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('tf-theme');
-      if (savedTheme === 'dark' || savedTheme === 'light') setTheme(savedTheme);
+      if (savedTheme) setTheme(savedTheme);
 
       const savedMode = localStorage.getItem('tf-mode') as any;
       if (savedMode) setMode(savedMode);
@@ -91,9 +91,10 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem('tf-theme', theme);
     const body = document.body;
-    body.classList.remove('theme-dark', 'theme-light');
+    THEMES.forEach((t) => body.classList.remove(`theme-${t.id}`));
     body.classList.add(`theme-${theme}`);
   }, [theme]);
+
 
   useEffect(() => {
     localStorage.setItem('tf-mode', mode);

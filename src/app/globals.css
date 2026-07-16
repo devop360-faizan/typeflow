@@ -13,8 +13,78 @@
   --color-theme-caret: var(--caret-color);
 }
 
-/* Default Theme (Dark Mode) */
-:root, .theme-dark {
+/* Default Theme (Carbon) */
+:root, .theme-carbon {
+  --bg-color: #292a2d;
+  --main-color: #f6c177;
+  --sub-color: #606366;
+  --text-color: #e1e3e6;
+  --error-color: #ca4754;
+  --error-extra-color: #7e2a33;
+  --caret-color: #f6c177;
+}
+
+.theme-serika-dark {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --sub-color: #646669;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --error-extra-color: #7e2a33;
+  --caret-color: #e2b714;
+}
+
+.theme-dracula {
+  --bg-color: #282a36;
+  --main-color: #ff79c6;
+  --sub-color: #6272a4;
+  --text-color: #f8f8f2;
+  --error-color: #ff5555;
+  --error-extra-color: #bd93f9;
+  --caret-color: #f1fa8c;
+}
+
+.theme-nord {
+  --bg-color: #2e3440;
+  --main-color: #88c0d0;
+  --sub-color: #4c566a;
+  --text-color: #d8dee9;
+  --error-color: #bf616a;
+  --error-extra-color: #d08770;
+  --caret-color: #88c0d0;
+}
+
+.theme-cyberpunk {
+  --bg-color: #18191e;
+  --main-color: #ffd400;
+  --sub-color: #5c5b66;
+  --text-color: #ffffff;
+  --error-color: #ff2a6d;
+  --error-extra-color: #05d9e8;
+  --caret-color: #ffd400;
+}
+
+.theme-sakura {
+  --bg-color: #f8e2e2;
+  --main-color: #d16d82;
+  --sub-color: #b48a94;
+  --text-color: #693b4c;
+  --error-color: #ca4754;
+  --error-extra-color: #e2a3b0;
+  --caret-color: #d16d82;
+}
+
+.theme-matrix {
+  --bg-color: #000000;
+  --main-color: #00ff00;
+  --sub-color: #004d00;
+  --text-color: #33ff33;
+  --error-color: #ff0000;
+  --error-extra-color: #800000;
+  --caret-color: #00ff00;
+}
+
+.theme-dark {
   --bg-color: #0d0f12;
   --main-color: #00f2fe;
   --sub-color: #475569;
@@ -33,6 +103,28 @@
   --error-extra-color: #b91c1c;
   --caret-color: #2563eb;
 }
+
+.theme-spotify {
+  --bg-color: #121212;
+  --main-color: #1db954;
+  --sub-color: #535353;
+  --text-color: #ffffff;
+  --error-color: #e22c3c;
+  --error-extra-color: #a81c27;
+  --caret-color: #1db954;
+}
+
+.theme-vscode {
+  --bg-color: #1e1e1e;
+  --main-color: #007acc;
+  --sub-color: #6a737d;
+  --text-color: #d4d4d4;
+  --error-color: #f48771;
+  --error-extra-color: #a31515;
+  --caret-color: #007acc;
+}
+
+
 
 
 body {

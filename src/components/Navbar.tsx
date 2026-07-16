@@ -2,6 +2,20 @@
 
 import React from 'react';
 
+export const THEMES = [
+  { id: 'carbon', name: 'carbon' },
+  { id: 'serika-dark', name: 'serika dark' },
+  { id: 'dracula', name: 'dracula' },
+  { id: 'nord', name: 'nord' },
+  { id: 'cyberpunk', name: 'cyberpunk' },
+  { id: 'sakura', name: 'sakura' },
+  { id: 'matrix', name: 'matrix' },
+  { id: 'spotify', name: 'spotify' },
+  { id: 'vscode', name: 'vscode' },
+  { id: 'dark', name: 'cyan dark' },
+  { id: 'light', name: 'royal light' }
+];
+
 export const SOUND_TYPES = [
   { id: 'mechanical', name: 'mechanical' },
   { id: 'retro', name: 'typewriter' },
@@ -10,8 +24,8 @@ export const SOUND_TYPES = [
 ] as const;
 
 interface NavbarProps {
-  theme: 'dark' | 'light';
-  setTheme: (theme: 'dark' | 'light') => void;
+  theme: string;
+  setTheme: (theme: string) => void;
   mode: 'time' | 'words';
   setMode: (mode: 'time' | 'words') => void;
   timeSetting: number;
@@ -48,12 +62,8 @@ export default function Navbar({
   blindMode,
   setBlindMode,
 }: NavbarProps) {
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
   return (
-    <header className="w-full max-w-5xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 transition-opacity duration-300 select-none">
+    <header className="w-full max-w-5xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 transition-opacity duration-300 select-none text-theme-sub">
       {/* Brand Logo */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 cursor-pointer group">
@@ -77,7 +87,7 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Mode settings toolbar - redesigned as custom segmented pill containers */}
+      {/* Mode settings toolbar - capsule segmented panel layout */}
       <div
         className={`flex flex-wrap items-center justify-center gap-4 bg-theme-bg/60 border border-theme-sub/20 py-2.5 px-4 rounded-3xl transition-all duration-300 ${
           isTypingActive ? 'opacity-0 pointer-events-none scale-95 blur-sm' : 'opacity-100 scale-100'
@@ -206,29 +216,28 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Sun/Moon Toggle Switch - Clean vector icon representing Light/Dark Mode */}
+      {/* Styled Theme Selection Capsule (Restored multiple options dropdown inside pill) */}
       <div
         className={`transition-all duration-300 ${
           isTypingActive ? 'opacity-0 pointer-events-none scale-95 blur-sm' : 'opacity-100 scale-100'
         }`}
       >
-        <button
-          onClick={toggleTheme}
-          className="group p-2.5 rounded-full border border-theme-sub/20 bg-theme-bg/40 text-theme-sub hover:text-theme-main hover:border-theme-main hover:shadow-[0_0_12px_rgba(59,130,246,0.15)] transition-all duration-300 scale-100 hover:scale-110 active:scale-95 shadow-md cursor-pointer"
-          title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
-        >
-          {theme === 'dark' ? (
-            /* Sun Icon (representing Light Mode option) */
-            <svg className="w-5 h-5 transition-transform duration-500 rotate-0 group-hover:rotate-90" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          ) : (
-            /* Moon Icon (representing Dark Mode option) */
-            <svg className="w-5 h-5 transition-transform duration-500 rotate-0 group-hover:-rotate-12" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-          )}
-        </button>
+        <div className="flex items-center gap-1.5 bg-theme-bg/60 border border-theme-sub/20 py-2.5 px-4 rounded-3xl font-mono text-xs text-theme-sub shadow-md hover:shadow-[0_0_12px_rgba(59,130,246,0.15)] hover:border-theme-sub/40 transition-all duration-300">
+          <svg className="w-4 h-4 text-theme-sub" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          </svg>
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            className="bg-theme-bg/0 text-theme-sub hover:text-theme-text border-none outline-none cursor-pointer focus:ring-0 font-mono py-0 capitalize text-xs tracking-wider"
+          >
+            {THEMES.map((t) => (
+              <option key={t.id} value={t.id} className="bg-theme-bg text-theme-text capitalize font-mono text-xs">
+                {t.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </header>
   );
