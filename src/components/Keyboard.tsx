@@ -88,7 +88,7 @@ interface KeyboardProps {
 
 export default function Keyboard({ activeKeys, heatmapData }: KeyboardProps) {
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-5 bg-gradient-to-br from-theme-bg/60 via-theme-bg/40 to-theme-bg/50 border border-theme-sub/10 rounded-3xl flex flex-col gap-1.5 md:gap-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] backdrop-blur-sm select-none">
+    <div className="w-full max-w-5xl mx-auto p-4 md:p-5 bg-gradient-to-br from-theme-bg/60 via-theme-bg/40 to-theme-bg/50 border border-theme-sub/10 rounded-3xl flex flex-col gap-1.5 md:gap-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] backdrop-blur-sm select-none">
       {KEYBOARD_ROWS.map((row, rIdx) => (
         <div key={rIdx} className="flex justify-center gap-1 md:gap-1.5 w-full">
           {row.map((key) => {
