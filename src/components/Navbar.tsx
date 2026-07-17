@@ -63,7 +63,7 @@ export default function Navbar({
   setBlindMode,
 }: NavbarProps) {
   return (
-    <header className="w-full max-w-5xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 transition-opacity duration-300 select-none text-theme-sub">
+    <header className="w-full max-w-[1440px] mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 transition-opacity duration-300 select-none text-theme-sub">
       {/* Brand Logo */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 cursor-pointer group">

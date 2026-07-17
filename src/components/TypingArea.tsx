@@ -331,7 +331,7 @@ export default function TypingArea({
       }
 
       // Handle row scrolling
-      if (relativeWordTop > 45) {
+      if (relativeWordTop > 35) {
         setTranslateY(-relativeWordTop + 6);
       } else if (relativeWordTop === 0) {
         setTranslateY(0);
@@ -546,7 +546,7 @@ export default function TypingArea({
 
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-4 relative select-none">
+    <div className="w-full max-w-none px-2 py-4 relative select-none">
       
       {/* Realtime stats feedback top bar */}
       <div className="flex justify-between items-center mb-6 h-8 text-theme-main text-xl font-bold">
@@ -586,7 +586,7 @@ export default function TypingArea({
       {/* Main typing container wrapper */}
       <div
         onClick={focusInput}
-        className={`relative w-full h-[140px] md:h-[160px] overflow-hidden cursor-text transition-all duration-200 ${
+        className={`relative w-full h-[180px] md:h-[220px] overflow-hidden cursor-text transition-all duration-200 ${
           isFocused ? 'ring-0' : 'opacity-85'
         }`}
       >
@@ -615,7 +615,7 @@ export default function TypingArea({
         {/* Words Grid Container */}
         <div
           ref={containerRef}
-          className="flex flex-wrap text-2xl md:text-3xl leading-relaxed text-theme-sub font-mono select-none tracking-wide transition-transform duration-200"
+          className="flex flex-wrap text-3xl md:text-4xl lg:text-[2.5rem] leading-relaxed text-theme-sub font-mono select-none tracking-wide transition-transform duration-200"
           style={{
             transform: `translate3d(0, ${translateY}px, 0)`,
           }}

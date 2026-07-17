@@ -263,7 +263,7 @@ export default function Home() {
       />
 
       {/* Main interactive area */}
-      <main className="flex-1 flex flex-col justify-center items-center py-6 relative z-10 w-full max-w-5xl mx-auto px-6">
+      <main className="flex-1 flex flex-col justify-center items-center py-6 relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-8">
         
         {/* PB Display when idle */}
         {status === 'idle' && currentPBValue > 0 && (
@@ -314,18 +314,18 @@ export default function Home() {
             </div>
 
             {/* RIGHT COLUMN: Live Performance Telemetry (Pushed further right) */}
-            <div className={`lg:col-span-1 flex flex-col justify-between p-5 bg-theme-bg/25 border border-theme-sub/10 rounded-3xl backdrop-blur-md transition-all duration-300 shadow-xl ${
+            <div className={`lg:col-span-1 flex flex-col justify-between p-6 md:p-8 bg-theme-bg/25 border border-theme-sub/10 rounded-3xl backdrop-blur-md transition-all duration-300 shadow-xl ${
               isTypingActive ? 'scale-[0.98] border-theme-sub/5' : 'scale-100'
             }`}>
 
-              <div className="space-y-4">
-                <div className="text-[10px] font-bold text-theme-sub/60 uppercase tracking-widest border-b border-theme-sub/10 pb-1.5 font-mono">
+              <div className="space-y-6">
+                <div className="text-xs font-bold text-theme-sub/60 uppercase tracking-widest border-b border-theme-sub/10 pb-2.5 font-mono">
                   [ Telemetry HUD ]
                 </div>
                 
                 {/* Dynamic Speedometer Circle */}
-                <div className="flex flex-col items-center justify-center py-2">
-                  <div className="relative w-28 h-28 flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center py-4">
+                  <div className="relative w-36 h-36 md:w-44 md:h-44 flex items-center justify-center">
                     <svg viewBox="0 0 120 120" className="w-full h-full">
                       {/* Outer gray ring track */}
                       <circle
@@ -355,10 +355,10 @@ export default function Home() {
                     
                     {/* Centered speed statistics text */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center font-mono select-none">
-                      <span className="text-3xl font-extrabold text-theme-main leading-none mt-1">
+                      <span className="text-4xl md:text-5xl font-extrabold text-theme-main leading-none mt-1">
                         {liveWpm}
                       </span>
-                      <span className="text-[9px] uppercase tracking-wider text-theme-sub/70 font-semibold">
+                      <span className="text-[10px] md:text-xs uppercase tracking-wider text-theme-sub/70 font-semibold mt-1">
                         wpm
                       </span>
                     </div>
@@ -367,7 +367,7 @@ export default function Home() {
 
                 {/* Real-time Accuracy display block */}
                 <div className="space-y-1 font-mono">
-                  <div className="flex justify-between text-[9px] uppercase text-theme-sub/60 font-bold">
+                  <div className="flex justify-between text-[11px] uppercase text-theme-sub/60 font-bold">
                     <span>Accuracy:</span>
                     <span className="text-theme-text font-bold">{liveAcc}%</span>
                   </div>
@@ -383,11 +383,11 @@ export default function Home() {
               </div>
 
               {/* Status warning bulbs for Sudden Death and Blind modes */}
-              <div className="mt-4 pt-4 border-t border-theme-sub/10 flex flex-col gap-2 font-mono text-[9px]">
+              <div className="mt-6 pt-6 border-t border-theme-sub/10 flex flex-col gap-3 font-mono text-[10px] md:text-xs">
                 {/* Sudden death light */}
                 <div className="flex items-center justify-between">
                   <span className="text-theme-sub/60 uppercase">death override:</span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${suddenDeath ? 'bg-red-500 animate-pulse shadow-[0_0_8px_#ef4444]' : 'bg-theme-sub/20'}`} />
                     <span className={suddenDeath ? 'text-red-500 font-bold' : 'text-theme-sub/40'}>
                       {suddenDeath ? 'ACTIVE' : 'OFF'}
@@ -398,7 +398,7 @@ export default function Home() {
                 {/* Blind Mode light */}
                 <div className="flex items-center justify-between">
                   <span className="text-theme-sub/60 uppercase">blind override:</span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${blindMode ? 'bg-theme-main animate-pulse shadow-[0_0_8px_var(--main-color)]' : 'bg-theme-sub/20'}`} />
                     <span className={blindMode ? 'text-theme-main font-bold' : 'text-theme-sub/40'}>
                       {blindMode ? 'ACTIVE' : 'OFF'}
@@ -425,7 +425,7 @@ export default function Home() {
       </main>
 
       {/* Minimal Footer */}
-      <footer className="w-full max-w-5xl mx-auto px-6 py-6 text-center text-xs text-theme-sub/30 border-t border-theme-sub/5 select-none font-mono">
+      <footer className="w-full max-w-[1440px] mx-auto px-6 lg:px-8 py-6 text-center text-xs text-theme-sub/30 border-t border-theme-sub/5 select-none font-mono">
         <div className="flex flex-col md:flex-row justify-between items-center gap-2">
           <div>
             TypeFlow Scientific HUD Console

@@ -138,7 +138,7 @@ export default function StatsView({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 py-8 flex flex-col gap-8 animate-fade select-none">
+    <div className="w-full max-w-6xl mx-auto px-6 py-8 flex flex-col gap-8 animate-fade select-none">
       
       {/* Primary stats rows */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-end">
